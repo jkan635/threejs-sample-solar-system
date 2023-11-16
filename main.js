@@ -17,7 +17,7 @@ camera.position.setZ(150);
 const sunGeometry = new THREE.SphereGeometry(50, 24, 24);
 const sunMaterial = new THREE.MeshStandardMaterial({
   emissive: 0xffd700,
-  emissiveMap: textureLoader.load('./images/sunmap.jpg'),
+  emissiveMap: textureLoader.load('./assets/images/sunmap.jpg'),
   emissiveIntensity: 1
 });
 const sun = new THREE.Mesh(sunGeometry, sunMaterial);
@@ -27,8 +27,8 @@ scene.add(sun)
 // MERCURY
 const mercuryGeometry = new THREE.SphereGeometry(5, 40, 20);
 const mercuryMaterial = new THREE.MeshStandardMaterial({
-  map: textureLoader.load('./images/mercurymap.jpg'),
-  bumpMap: textureLoader.load('./images/mercurybump.jpg'),
+  map: textureLoader.load('./assets/images/mercurymap.jpg'),
+  bumpMap: textureLoader.load('./assets/images/mercurybump.jpg'),
   bumpScale: 0.5,
 });
 const mercuryMesh = new THREE.Mesh(mercuryGeometry, mercuryMaterial);
@@ -45,8 +45,8 @@ scene.add(mercuryOrbit);
 // VENUS
 const venusGeometry = new THREE.SphereGeometry(5, 40, 20);
 const venusMaterial = new THREE.MeshStandardMaterial({
-  map: textureLoader.load('./images/venusmap.jpg'),
-  bumpMap: textureLoader.load('./images/venusbump.jpg'),
+  map: textureLoader.load('./assets/images/venusmap.jpg'),
+  bumpMap: textureLoader.load('./assets/images/venusbump.jpg'),
   bumpScale: 0.5,
 });
 const venusMesh = new THREE.Mesh(venusGeometry, venusMaterial);
@@ -63,10 +63,10 @@ scene.add(venusOrbit);
 // EARTH
 const earthGeometry = new THREE.SphereGeometry(5, 40, 20);
 const earthMaterial = new THREE.MeshPhongMaterial({
-  map: textureLoader.load('./images/earthmap.jpg'),
-  bumpMap: textureLoader.load('./images/earthbump.jpg'),
+  map: textureLoader.load('./assets/images/earthmap.jpg'),
+  bumpMap: textureLoader.load('./assets/images/earthbump.jpg'),
   bumpScale: 0.5,
-  specularMap: textureLoader.load('./images/earthspec.jpg')
+  specularMap: textureLoader.load('./assets/images/earthspec.jpg')
 });
 const earthMesh = new THREE.Mesh(earthGeometry, earthMaterial);
 scene.add(earthMesh)
