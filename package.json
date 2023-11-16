@@ -1,0 +1,21 @@
+{
+  "homepage": "https://jkan635.github.io/threejs-sample-solar-system",
+  "name": "threejs-sample-solar-system",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "gh-pages": "^6.0.0",
+    "three": "^0.158.0"
+  }
+}
