@@ -78,6 +78,106 @@ const earthOrbit = new THREE.Line(earthOrbitGeometry, earthOrbitMaterial);
 earthOrbit.rotateX(-Math.PI/2);
 scene.add(earthOrbit);
 
+// MARS
+const marsGeometry = new THREE.SphereGeometry(5, 40, 20);
+const marsMaterial = new THREE.MeshStandardMaterial({
+  map: textureLoader.load('./assets/images/marsmap.jpg'),
+  bumpMap: textureLoader.load('./assets/images/marsbump.jpg'),
+  bumpScale: 0.5,
+});
+const marsMesh = new THREE.Mesh(marsGeometry, marsMaterial);
+scene.add(marsMesh)
+
+const marsCurve = new THREE.EllipseCurve(0,0, 400, 400, 0, 2*Math.PI)
+const marsPoints = marsCurve.getSpacedPoints(200);
+const marsOrbitGeometry = new THREE.BufferGeometry().setFromPoints(marsPoints);
+const marsOrbitMaterial = new THREE.LineBasicMaterial({color: 0x333333, transparent: false, opacity: 0.5 });
+const marsOrbit = new THREE.Line(marsOrbitGeometry, marsOrbitMaterial);
+marsOrbit.rotateX(-Math.PI/2);
+scene.add(marsOrbit);
+
+// JUPITER
+const jupiterGeometry = new THREE.SphereGeometry(10, 40, 20);
+const jupiterMaterial = new THREE.MeshStandardMaterial({
+  map: textureLoader.load('./assets/images/jupitermap.jpg'),
+});
+const jupiterMesh = new THREE.Mesh(jupiterGeometry, jupiterMaterial);
+scene.add(jupiterMesh)
+
+const jupiterCurve = new THREE.EllipseCurve(0,0, 500, 500, 0, 2*Math.PI)
+const jupiterPoints = jupiterCurve.getSpacedPoints(200);
+const jupiterOrbitGeometry = new THREE.BufferGeometry().setFromPoints(jupiterPoints);
+const jupiterOrbitMaterial = new THREE.LineBasicMaterial({color: 0x333333, transparent: false, opacity: 0.5 });
+const jupiterOrbit = new THREE.Line(jupiterOrbitGeometry, jupiterOrbitMaterial);
+jupiterOrbit.rotateX(-Math.PI/2);
+scene.add(jupiterOrbit);
+
+// SATURN
+const saturnGeometry = new THREE.SphereGeometry(10, 40, 20);
+const saturnMaterial = new THREE.MeshStandardMaterial({
+  map: textureLoader.load('./assets/images/saturnmap.jpg'),
+});
+const saturnMesh = new THREE.Mesh(saturnGeometry, saturnMaterial);
+scene.add(saturnMesh)
+
+const saturnCurve = new THREE.EllipseCurve(0,0, 600, 600, 0, 2*Math.PI)
+const saturnPoints = saturnCurve.getSpacedPoints(200);
+const saturnOrbitGeometry = new THREE.BufferGeometry().setFromPoints(saturnPoints);
+const saturnOrbitMaterial = new THREE.LineBasicMaterial({color: 0x333333, transparent: false, opacity: 0.5 });
+const saturnOrbit = new THREE.Line(saturnOrbitGeometry, saturnOrbitMaterial);
+saturnOrbit.rotateX(-Math.PI/2);
+scene.add(saturnOrbit);
+
+// URANUS
+const uranusGeometry = new THREE.SphereGeometry(10, 40, 20);
+const uranusMaterial = new THREE.MeshStandardMaterial({
+  map: textureLoader.load('./assets/images/uranusmap.jpg'),
+});
+const uranusMesh = new THREE.Mesh(uranusGeometry, uranusMaterial);
+scene.add(uranusMesh)
+
+const uranusCurve = new THREE.EllipseCurve(0,0, 700, 700, 0, 2*Math.PI)
+const uranusPoints = uranusCurve.getSpacedPoints(200);
+const uranusOrbitGeometry = new THREE.BufferGeometry().setFromPoints(uranusPoints);
+const uranusOrbitMaterial = new THREE.LineBasicMaterial({color: 0x333333, transparent: false, opacity: 0.5 });
+const uranusOrbit = new THREE.Line(uranusOrbitGeometry, uranusOrbitMaterial);
+uranusOrbit.rotateX(-Math.PI/2);
+scene.add(uranusOrbit);
+
+// NEPTUNE
+const neptuneGeometry = new THREE.SphereGeometry(10, 40, 20);
+const neptuneMaterial = new THREE.MeshStandardMaterial({
+  map: textureLoader.load('./assets/images/neptunemap.jpg'),
+});
+const neptuneMesh = new THREE.Mesh(neptuneGeometry, neptuneMaterial);
+scene.add(neptuneMesh)
+
+const neptuneCurve = new THREE.EllipseCurve(0,0, 800, 800, 0, 2*Math.PI)
+const neptunePoints = neptuneCurve.getSpacedPoints(200);
+const neptuneOrbitGeometry = new THREE.BufferGeometry().setFromPoints(neptunePoints);
+const neptuneOrbitMaterial = new THREE.LineBasicMaterial({color: 0x333333, transparent: false, opacity: 0.5 });
+const neptuneOrbit = new THREE.Line(neptuneOrbitGeometry, neptuneOrbitMaterial);
+neptuneOrbit.rotateX(-Math.PI/2);
+scene.add(neptuneOrbit);
+
+// PLUTO
+const plutoGeometry = new THREE.SphereGeometry(5, 40, 20);
+const plutoMaterial = new THREE.MeshStandardMaterial({
+  map: textureLoader.load('./assets/images/plutomap.jpg'),
+  bumpMap: textureLoader.load('./assets/images/plutobump.jpg'),
+  bumpScale: 0.5,
+});
+const plutoMesh = new THREE.Mesh(plutoGeometry, plutoMaterial);
+scene.add(plutoMesh)
+
+const plutoCurve = new THREE.EllipseCurve(0,0, 900, 900, 0, 2*Math.PI)
+const plutoPoints = plutoCurve.getSpacedPoints(200);
+const plutoOrbitGeometry = new THREE.BufferGeometry().setFromPoints(plutoPoints);
+const plutoOrbitMaterial = new THREE.LineBasicMaterial({color: 0x333333, transparent: false, opacity: 0.5 });
+const plutoOrbit = new THREE.Line(plutoOrbitGeometry, plutoOrbitMaterial);
+plutoOrbit.rotateX(-Math.PI/2);
+scene.add(plutoOrbit);
+
 const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(5,5,5);
 
@@ -107,13 +207,19 @@ const loopTime = 1;
 const mercuryOrbitSpeed = 0.00003;
 const venusOrbitSpeed = 0.00002;
 const earthOrbitSpeed = 0.00001;
+const marsOrbitSpeed = 0.00001;
+const juptierOrbitSpeed = 0.00001;
+const saturnOrbitSpeed = 0.00001;
+const uranusOrbitSpeed = 0.00001;
+const neptuneOrbitSpeed = 0.00001;
+const plutoOrbitSpeed = 0.00001;
 
 function animate () {
-  const mTime = mercuryOrbitSpeed * performance.now();
-  const mT = (mTime % loopTime) / loopTime;
-  let mP = mercuryCurve.getPoint(mT);
-  mercuryMesh.position.x = mP.x;
-  mercuryMesh.position.z = mP.y;
+  const meTime = mercuryOrbitSpeed * performance.now();
+  const meT = (meTime % loopTime) / loopTime;
+  let meP = mercuryCurve.getPoint(meT);
+  mercuryMesh.position.x = meP.x;
+  mercuryMesh.position.z = meP.y;
 
   const vTime = venusOrbitSpeed * performance.now();
   const vT = (vTime % loopTime) / loopTime;
@@ -126,6 +232,42 @@ function animate () {
   let eP = earthCurve.getPoint(eT);
   earthMesh.position.x = eP.x;
   earthMesh.position.z = eP.y;
+
+  const maTime = marsOrbitSpeed * performance.now();
+  const maT = (maTime % loopTime) / loopTime;
+  let maP = marsCurve.getPoint(maT);
+  marsMesh.position.x = maP.x;
+  marsMesh.position.z = maP.y;
+
+  const jTime = juptierOrbitSpeed * performance.now();
+  const jT = (jTime % loopTime) / loopTime;
+  let jP = jupiterCurve.getPoint(jT);
+  jupiterMesh.position.x = jP.x;
+  jupiterMesh.position.z = jP.y;
+
+  const sTime = saturnOrbitSpeed * performance.now();
+  const sT = (sTime % loopTime) / loopTime;
+  let sP = saturnCurve.getPoint(sT);
+  saturnMesh.position.x = sP.x;
+  saturnMesh.position.z = sP.y;
+
+  const uTime = uranusOrbitSpeed * performance.now();
+  const uT = (uTime % loopTime) / loopTime;
+  let uP = uranusCurve.getPoint(uT);
+  uranusMesh.position.x = uP.x;
+  uranusMesh.position.z = uP.y;
+
+  const nTime = neptuneOrbitSpeed * performance.now();
+  const nT = (nTime % loopTime) / loopTime;
+  let nP = neptuneCurve.getPoint(nT);
+  neptuneMesh.position.x = nP.x;
+  neptuneMesh.position.z = nP.y;
+
+  const pTime = plutoOrbitSpeed * performance.now();
+  const pT = (pTime % loopTime) / loopTime;
+  let pP = plutoCurve.getPoint(pT);
+  plutoMesh.position.x = pP.x;
+  plutoMesh.position.z = pP.y;
 
   controls.update();
   renderer.render(scene, camera);
