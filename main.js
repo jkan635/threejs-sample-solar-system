@@ -204,70 +204,97 @@ function moveCamera() {
 document.body.onscroll = moveCamera
 
 const loopTime = 1;
-const mercuryOrbitSpeed = 0.00003;
-const venusOrbitSpeed = 0.00002;
-const earthOrbitSpeed = 0.00001;
-const marsOrbitSpeed = 0.00001;
-const juptierOrbitSpeed = 0.00001;
-const saturnOrbitSpeed = 0.00001;
-const uranusOrbitSpeed = 0.00001;
-const neptuneOrbitSpeed = 0.00001;
-const plutoOrbitSpeed = 0.00001;
+const tempRotationSpeed = 0.01;
+
+// const orbitSpeedMultiplier = 0.20; // Every earth year is 5 seconds
+const orbitSpeedMultiplier = 0.1; // Every earth year is 10 seconds
+
+const mercuryYear = 4.14;
+const venusYear = 1.62;
+const earthYear = 1;
+const marsYear = 0.53;
+const juptierYear = 0.08;
+const saturnYear = 0.03;
+const uranusYear = 0.011;
+const neptuneYear = 0.006;
+const plutoYear = 0.004;
 
 function animate () {
-  const meTime = mercuryOrbitSpeed * performance.now();
+
+  const mercuryOrbitSpeed = mercuryYear * orbitSpeedMultiplier;
+  const venusOrbitSpeed = venusYear * orbitSpeedMultiplier;
+  const earthOrbitSpeed = earthYear * orbitSpeedMultiplier;
+  const marsOrbitSpeed = marsYear * orbitSpeedMultiplier;
+  const juptierOrbitSpeed = juptierYear * orbitSpeedMultiplier;
+  const saturnOrbitSpeed = saturnYear * orbitSpeedMultiplier;
+  const uranusOrbitSpeed = uranusYear * orbitSpeedMultiplier;
+  const neptuneOrbitSpeed = neptuneYear * orbitSpeedMultiplier;
+  const plutoOrbitSpeed = plutoYear * orbitSpeedMultiplier;
+
+  sun.rotation.y += tempRotationSpeed;
+
+  const meTime = mercuryOrbitSpeed * (performance.now() / 1000);
   const meT = (meTime % loopTime) / loopTime;
   let meP = mercuryCurve.getPoint(meT);
   mercuryMesh.position.x = meP.x;
   mercuryMesh.position.z = meP.y;
+  mercuryMesh.rotation.y += tempRotationSpeed
 
-  const vTime = venusOrbitSpeed * performance.now();
+  const vTime = venusOrbitSpeed * (performance.now() / 1000);
   const vT = (vTime % loopTime) / loopTime;
   let vP = venusCurve.getPoint(vT);
   venusMesh.position.x = vP.x;
   venusMesh.position.z = vP.y;
+  venusMesh.rotation.y += tempRotationSpeed
 
-  const eTime = earthOrbitSpeed * performance.now();
+  const eTime = earthOrbitSpeed * (performance.now() / 1000);
   const eT = (eTime % loopTime) / loopTime;
   let eP = earthCurve.getPoint(eT);
   earthMesh.position.x = eP.x;
   earthMesh.position.z = eP.y;
+  earthMesh.rotation.y += tempRotationSpeed
 
-  const maTime = marsOrbitSpeed * performance.now();
+  const maTime = marsOrbitSpeed * (performance.now() / 1000);
   const maT = (maTime % loopTime) / loopTime;
   let maP = marsCurve.getPoint(maT);
   marsMesh.position.x = maP.x;
   marsMesh.position.z = maP.y;
+  marsMesh.rotation.y += tempRotationSpeed
 
-  const jTime = juptierOrbitSpeed * performance.now();
+  const jTime = juptierOrbitSpeed * (performance.now() / 1000);
   const jT = (jTime % loopTime) / loopTime;
   let jP = jupiterCurve.getPoint(jT);
   jupiterMesh.position.x = jP.x;
   jupiterMesh.position.z = jP.y;
+  jupiterMesh.rotation.y += tempRotationSpeed
 
-  const sTime = saturnOrbitSpeed * performance.now();
+  const sTime = saturnOrbitSpeed * (performance.now() / 1000);
   const sT = (sTime % loopTime) / loopTime;
   let sP = saturnCurve.getPoint(sT);
   saturnMesh.position.x = sP.x;
   saturnMesh.position.z = sP.y;
+  saturnMesh.rotation.y += tempRotationSpeed
 
-  const uTime = uranusOrbitSpeed * performance.now();
+  const uTime = uranusOrbitSpeed * (performance.now() / 1000);
   const uT = (uTime % loopTime) / loopTime;
   let uP = uranusCurve.getPoint(uT);
   uranusMesh.position.x = uP.x;
   uranusMesh.position.z = uP.y;
+  uranusMesh.rotation.y += tempRotationSpeed
 
-  const nTime = neptuneOrbitSpeed * performance.now();
+  const nTime = neptuneOrbitSpeed * (performance.now() / 1000);
   const nT = (nTime % loopTime) / loopTime;
   let nP = neptuneCurve.getPoint(nT);
   neptuneMesh.position.x = nP.x;
   neptuneMesh.position.z = nP.y;
+  neptuneMesh.rotation.y += tempRotationSpeed
 
-  const pTime = plutoOrbitSpeed * performance.now();
+  const pTime = plutoOrbitSpeed * (performance.now() / 1000);
   const pT = (pTime % loopTime) / loopTime;
   let pP = plutoCurve.getPoint(pT);
   plutoMesh.position.x = pP.x;
   plutoMesh.position.z = pP.y;
+  plutoMesh.rotation.y += tempRotationSpeed
 
   controls.update();
   renderer.render(scene, camera);
